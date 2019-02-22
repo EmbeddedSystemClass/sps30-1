@@ -32,7 +32,7 @@ class SPS30 : public Device {
 		float nc_pm5, nc_pm10, nc_pm25, nc_pm40, nc_pm100;
 		float typical_particle_size;
 		
-		bool fan = true;
+		bool fan_on = true;
 		bool fan_update_flag = true;
 		
 		uint8_t CalcCrc(uint8_t*) ;

@@ -12,8 +12,24 @@ SPS30::SPS30(int bus_ch, int dev_addr) {
 void SPS30::init(void) {
 	esp_log_level_set("*", ESP_LOG_INFO);
 	
+	/*
+	// Reset speed of I2C
+	i2c_config_t conf;
+
+	conf.mode = I2C_MODE_MASTER;
+	conf.sda_io_num = CHAIN_SDA_GPIO;
+	conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
+	conf.scl_io_num = CHAIN_SCL_GPIO;
+	conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
+	conf.master.clk_speed = 100E3;
+
+	i2c_param_config(I2C_NUM_1, &conf);
+	*/
+	
 	// Set new timeout of i2c
 	i2c_set_timeout(I2C_NUM_1, 12800);
+	
+	
 	
 	state = s_detect;
 }
@@ -82,7 +98,7 @@ void SPS30::process(Driver *drv) {
 				reg[0] = 0x20;
 				reg[1] = 0x20;
 				if (i2c->read(channel, address, reg, 2, dataRead, 3) == ESP_OK) {
-					if (CalcCrc(dataRead) != dataRead[2]) { // Check CRC
+					if (CalcCrc(dataRead) == dataRead[2]) { // Check CRC
 						if (dataRead[1] == 0x01) { // new measurements ready to read
 							// Read Measured Values
 							reg[0] = 0x03;
@@ -123,13 +139,15 @@ void SPS30::process(Driver *drv) {
 								initialized = true;
 								// clear error flag
 								error = false;
+								
+								ESP_LOGI("SPS30", "Measurement work, PM1.0: %f, PM2.5: %f, PM4.0: %f, PM10: %f", mc_pm10, mc_pm25, mc_pm40, mc_pm100);
 							} else {
 								ESP_LOGI("SPS30", "Read measurement error");
 								state = s_error;
 							}
 						}
 					} else {
-						ESP_LOGI("SPS30", "Check CRC error");
+						ESP_LOGI("SPS30", "Check CRC error 0x%X != 0x%X", dataRead[2], CalcCrc(dataRead));
 						state = s_error;
 					}
 				} else {
@@ -228,8 +246,8 @@ double SPS30::read(SPS30_Type type, uint8_t size) {
 	return value;
 }
 
-void fan(bool isON) {
-	fan = isON;
+void SPS30::fan(bool isON) {
+	fan_on = isON;
 	fan_update_flag = true;
 }
 
