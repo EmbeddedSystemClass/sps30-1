@@ -2,6 +2,8 @@
 
 วัดค่าฝุ่นด้วยเซ็นเซอร์ Sensirion SPS30 ปลั๊กอินเสริมใช้งานกับ KidBrightIDE
 
+[![สร้างเครื่องวัดฝุ่น PM2.5 ง่าย ๆ ด้วย KidBright + SPS30](https://img.youtube.com/vi/DIgbGQuMoeE/0.jpg)](https://www.youtube.com/watch?v=DIgbGQuMoeE)
+
 ## การติดตั้ง
 
 กรณีใช้โปรแกรม KidBrightIDE (NewUI) เวอร์ชั่นเก่า หรือติดตั้งด้วย Gitlab
