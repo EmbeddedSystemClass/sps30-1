@@ -24,25 +24,7 @@ SPS30::SPS30(int bus_ch, int dev_addr) {
 }
 
 void SPS30::init(void) {
-	esp_log_level_set("*", ESP_LOG_INFO);
-	
-	// Reset speed of I2C
-	i2c_config_t conf;
-
-	conf.mode = I2C_MODE_MASTER;
-	conf.sda_io_num = CHAIN_SDA_GPIO;
-	conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
-	conf.scl_io_num = CHAIN_SCL_GPIO;
-	conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
-	conf.master.clk_speed = 100E3;
-
-	i2c_param_config(I2C_NUM_1, &conf);
-	
-	
-	// Set new timeout of i2c
-	i2c_set_timeout(I2C_NUM_1, 50000);
-	
-	
+	// esp_log_level_set("*", ESP_LOG_INFO);
 	
 	state = s_detect;
 }
