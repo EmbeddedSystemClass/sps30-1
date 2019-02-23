@@ -1,10 +1,10 @@
 Blockly.Blocks['sps30_is_ready'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "PM Sensor is ready?",
+			"message0": Blockly.Msg.SPS30_IS_READY_MESSAGE,
 			"output": "Boolean",
 			"colour": 135,
-			"tooltip": "",
+			"tooltip": Blockly.Msg.SPS30_IS_READY_TOOLTIP,
 			"helpUrl": "https://store.kidbright.info/plugin/12/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%9D%E0%B8%B8%E0%B9%88%E0%B8%99+SPS30"
 		});
 	}
@@ -13,11 +13,11 @@ Blockly.Blocks['sps30_is_ready'] = {
 Blockly.Blocks['sps30_wait_ready'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "Wait PM sensor ready",
+			"message0": Blockly.Msg.SPS30_WAIT_READY_MESSAGE,
 			"previousStatement": null,
 			"nextStatement": null,
 			"colour": 135,
-			"tooltip": "",
+			"tooltip": Blockly.Msg.SPS30_WAIT_READY_TOOLTIP,
 			"helpUrl": "https://store.kidbright.info/plugin/12/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%9D%E0%B8%B8%E0%B9%88%E0%B8%99+SPS30"
 		});
 	}
@@ -26,7 +26,7 @@ Blockly.Blocks['sps30_wait_ready'] = {
 Blockly.Blocks['sps30_read_mass_concentration'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "PM Senser - read mass concentration %1",
+			"message0": Blockly.Msg.SPS30_READ_MASS_CONCENTRATION_MESSAGE,
 			"args0": [{
 				"type": "field_dropdown",
 				"name": "size",
@@ -39,7 +39,7 @@ Blockly.Blocks['sps30_read_mass_concentration'] = {
 			}],
 			"output": "Number",
 			"colour": 135,
-			"tooltip": "Read mass concentration of PM1.0/2.5/4.0/10 from Sensirion SPS30",
+			"tooltip": Blockly.Msg.SPS30_READ_MASS_CONCENTRATION_TOOLTIP,
 			"helpUrl": "https://store.kidbright.info/plugin/12/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%9D%E0%B8%B8%E0%B9%88%E0%B8%99+SPS30"
 		});
 	}
@@ -48,7 +48,7 @@ Blockly.Blocks['sps30_read_mass_concentration'] = {
 Blockly.Blocks['sps30_read_number_concentration'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "PM Senser - read number concentration %1",
+			"message0": Blockly.Msg.SPS30_READ_NUMBER_CONCENTRATION_MESSAGE,
 			"args0": [{
 				"type": "field_dropdown",
 				"name": "size",
@@ -62,7 +62,7 @@ Blockly.Blocks['sps30_read_number_concentration'] = {
 			}],
 			"output": "Number",
 			"colour": 135,
-			"tooltip": "Read number concentration of PM1.0/2.5/4.0/10 from Sensirion SPS30",
+			"tooltip": Blockly.Msg.SPS30_READ_NUMBER_CONCENTRATION_TOOLTIP,
 			"helpUrl": "https://store.kidbright.info/plugin/12/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%9D%E0%B8%B8%E0%B9%88%E0%B8%99+SPS30"
 		});
 	}
@@ -71,34 +71,12 @@ Blockly.Blocks['sps30_read_number_concentration'] = {
 Blockly.Blocks['sps30_read_typical_particle_sizes'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "PM Senser - read typical particle sizes",
+			"message0": Blockly.Msg.SPS30_TYPICAL_PARTICAL_SIZES_MESSAGE,
 			"output": "Number",
 			"colour": 135,
-			"tooltip": "Read typical particle sizes of PM1.0/2.5/4.0/10 from Sensirion SPS30",
+			"tooltip": Blockly.Msg.SPS30_TYPICAL_PARTICAL_SIZES_TOOLTIP,
 			"helpUrl": "https://store.kidbright.info/plugin/12/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%9D%E0%B8%B8%E0%B9%88%E0%B8%99+SPS30"
 		});
 	}
 };
 
-/*
-Blockly.Blocks['sps30_control_fan'] = {
-	init: function() {
-		this.jsonInit({
-			"message0": "PM2.5 Sensor trun %1 fan",
-			"args0": [{
-				"type": "field_dropdown",
-				"name": "control",
-				"options": [
-					[ "ON", "true" ],
-					[ "OFF", "false" ]
-				]
-			}],
-			"previousStatement": null,
-			"nextStatement": null,
-			"colour": 135,
-			"tooltip": "Control fan on Sensirion SPS30",
-			"helpUrl": "https://store.kidbright.info/plugin/12/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%9D%E0%B8%B8%E0%B9%88%E0%B8%99+SPS30"
-		});
-	}
-};
-*/
