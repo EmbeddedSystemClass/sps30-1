@@ -21,7 +21,7 @@
 static I2CDev *SPS30_i2c;
 
 enum SPS30_Type {
-	SPS30_MASS, SPS30_NUMBER
+	SPS30_MASS, SPS30_NUMBER, SPS30_TYPICAL
 };
 
 class SPS30 : public Device {
@@ -51,7 +51,7 @@ class SPS30 : public Device {
 		
 		// method
 		bool isReady() ;
-		double read(SPS30_Type, uint8_t) ;
+		double read(SPS30_Type, uint8_t=0) ;
 		void fan(bool) ;
 		
 };

@@ -198,6 +198,8 @@ double SPS30::read(SPS30_Type type, uint8_t size) {
 				break;
 				
 		}
+	} else if (type == SPS30_TYPICAL) {
+		value = measurement.typical_particle_size;
 	}
 	
 	return value;
