@@ -20,6 +20,8 @@
  
 ## การต่อสาย
 
+![TGstzn.png](https://sv1.picz.in.th/images/2019/02/23/TGstzn.png)
+
 ปลั๊กอินนี้รองรับการต่อเซ็นเซอร์ Sensirion SPS30 เข้าที่ช่อง KB Chain โดยต่อสายดังนี้
 
  * ต่อ Pin 1 ของ Sensirion SPS30 เข้ากับ 5V
